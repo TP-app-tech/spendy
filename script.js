@@ -9,6 +9,7 @@ function addParticipant() {
     participants.push(name);
     updateParticipantsList();
     updatePartsInputs();
+    updatePayerSelector();
   }
   nameInput.value = "";
 }
@@ -25,9 +26,19 @@ function updatePartsInputs() {
   ).join("");
 }
 
+function updatePayerSelector() {
+  const payerSelect = document.getElementById("payer-select");
+  if (!payerSelect) return;
+
+  payerSelect.innerHTML = participants.map(p => 
+    `<option value='${p}'>${p}</option>`
+  ).join("");
+}
+
 function addExpense() {
   const desc = document.getElementById("expense-desc").value;
   const amount = parseFloat(document.getElementById("expense-amount").value);
+  const payer = document.getElementById("payer-select").value;
   const inputs = document.querySelectorAll("#parts-inputs input");
   let parts = {}, totalParts = 0;
   inputs.forEach(input => {
@@ -37,7 +48,7 @@ function addExpense() {
   });
 
   if (desc && !isNaN(amount) && totalParts > 0) {
-    expenses.push({ desc, amount, parts });
+    expenses.push({ desc, amount, payer, parts });
     updateSummary();
     document.getElementById("expense-desc").value = "";
     document.getElementById("expense-amount").value = "";
@@ -48,7 +59,7 @@ function addExpense() {
 function updateSummary() {
   const list = document.getElementById("summary-list");
   list.innerHTML = expenses.map(e => {
-    return `<li>${e.desc} - ${e.amount.toFixed(2)} €</li>`;
+    return `<li>${e.desc} - ${e.amount.toFixed(2)} € (payé par ${e.payer})</li>`;
   }).join("");
 }
 
@@ -60,12 +71,11 @@ function calculateBalances() {
     const totalParts = Object.values(e.parts).reduce((a, b) => a + b, 0);
     participants.forEach(p => {
       const part = e.parts[p] || 0;
-      balances[p] -= (e.amount * part / totalParts);
+      const share = e.amount * part / totalParts;
+      balances[p] -= share;
     });
+    balances[e.payer] += e.amount;
   });
-
-  const avg = Object.values(balances).reduce((a, b) => a + b, 0) / participants.length;
-  Object.keys(balances).forEach(p => balances[p] += avg);
 
   const balanceList = document.getElementById("balances-list");
   balanceList.innerHTML = Object.entries(balances).map(([p, b]) =>
