@@ -1,7 +1,7 @@
 {
   "name": "Spendy",
   "short_name": "Spendy",
-  "start_url": ".",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2b9348",
