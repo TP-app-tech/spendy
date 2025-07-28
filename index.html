@@ -10,9 +10,28 @@
 <body>
   <div class="container">
     <h1>Spendy</h1>
-    <div id="participants-section"></div>
-    <div id="expenses-section"></div>
-    <div id="summary-section"></div>
+    <div id="participants-section">
+      <h2>Participants</h2>
+      <input type="text" id="participant-name" placeholder="Nom du participant" />
+      <button onclick="addParticipant()">Ajouter</button>
+      <ul id="participants-list"></ul>
+    </div>
+
+    <div id="expenses-section">
+      <h2>Nouvelle dépense</h2>
+      <input type="text" id="expense-desc" placeholder="Description" />
+      <input type="number" id="expense-amount" placeholder="Montant" />
+      <div id="parts-inputs"></div>
+      <button onclick="addExpense()">Ajouter la dépense</button>
+    </div>
+
+    <div id="summary-section">
+      <h2>Résumé</h2>
+      <ul id="summary-list"></ul>
+      <button onclick="calculateBalances()">Calculer les soldes</button>
+      <ul id="balances-list"></ul>
+    </div>
+
     <button onclick="downloadPDF()">Exporter en PDF</button>
   </div>
   <script src="script.js"></script>
