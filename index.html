@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,6 +11,7 @@
 <body>
   <div class="container">
     <h1>Spendy</h1>
+
     <div id="participants-section">
       <h2>Participants</h2>
       <input type="text" id="participant-name" placeholder="Nom du participant" />
@@ -21,6 +23,8 @@
       <h2>Nouvelle dépense</h2>
       <input type="text" id="expense-desc" placeholder="Description" />
       <input type="number" id="expense-amount" placeholder="Montant" />
+      <label for="payer-select">Payée par :</label>
+      <select id="payer-select"></select>
       <div id="parts-inputs"></div>
       <button onclick="addExpense()">Ajouter la dépense</button>
     </div>
