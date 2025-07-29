@@ -1,15 +1,15 @@
 {
-  "name": "Spendy",
-  "short_name": "Spendy",
-  "start_url": "./?v=v1753738891",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2b9348",
-  "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
+    "name": "Spendy",
+    "short_name": "Spendy",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#00AA66",
+    "description": "Gérez vos dépenses partagées facilement",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }

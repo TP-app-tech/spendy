@@ -1,45 +1,19 @@
-
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  color: #333;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f5f5f5;
 }
-
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+h1, h2 {
+    text-align: center;
 }
-
-h1 {
-  text-align: center;
-  color: #2b9348;
-  font-family: 'Pacifico', cursive;
-  font-size: 36px;
-}
-
-input, select, textarea, button {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  touch-action: manipulation;
-}
-
 button {
-  background-color: #2b9348;
-  color: white;
-  border: none;
+    margin-top: 5px;
 }
-
-button:hover {
-  background-color: #238636;
+input {
+    margin: 5px 0;
+    display: block;
+}
+/* Désactiver double-tap zoom iOS */
+body {
+    touch-action: manipulation;
 }

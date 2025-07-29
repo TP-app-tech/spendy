@@ -1,43 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Spendy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Spendy v2.7</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <div class="container">
-    <h1>Spendy</h1>
-
-    <div id="participants-section">
-      <h2>Participants</h2>
-      <input type="text" id="participant-name" placeholder="Nom du participant" />
-      <button onclick="addParticipant()">Ajouter</button>
-      <ul id="participants-list"></ul>
+    <h1>Spendy v2.7</h1>
+    <div class="participants-section">
+        <h2>Participants</h2>
+        <div id="participants"></div>
+        <input type="text" id="newParticipant" placeholder="Ajouter un participant">
+        <button onclick="addParticipant()">Ajouter</button>
     </div>
 
-    <div id="expenses-section">
-      <h2>Nouvelle dépense</h2>
-      <input type="text" id="expense-desc" placeholder="Description" />
-      <input type="number" id="expense-amount" placeholder="Montant" />
-      <label for="payer-select">Payée par :</label>
-      <select id="payer-select"></select>
-      <div id="parts-inputs"></div>
-      <button onclick="addExpense()">Ajouter la dépense</button>
+    <div class="expense-section">
+        <h2>Ajouter une dépense</h2>
+        <input type="text" id="expenseDescription" placeholder="Description">
+        <input type="number" id="expenseAmount" placeholder="Montant">
+        <button onclick="addExpense()">Ajouter la dépense</button>
     </div>
 
-    <div id="summary-section">
-      <h2>Résumé</h2>
-      <ul id="summary-list"></ul>
-      <button onclick="calculateBalances()">Calculer les soldes</button>
-      <ul id="balances-list"></ul>
+    <div class="balances-section">
+        <h2>Soldes des participants</h2>
+        <div id="balances"></div>
     </div>
 
-    <button onclick="downloadPDF()">Exporter en PDF</button>
-  </div>
-  <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
